@@ -1,0 +1,15 @@
+{
+  "name": "yqc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "devStart"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.6.3",
+    "node": "^15.2.1"
+  }
+}
