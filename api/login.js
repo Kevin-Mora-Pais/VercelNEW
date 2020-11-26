@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
                 })
             }
             if (conf == true) {
-                return res.status(404).json({
+                return res.json({
                     _links: {
                         self: {
                             href: 'http://localhost:3000/login1'
