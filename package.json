@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "mongodb": "^3.6.3",
     "node": "^15.2.1",
     "vercel": "^21.0.1"
