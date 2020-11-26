@@ -36,7 +36,8 @@ module.exports = async (req, res) => {
                             href: 'http://localhost:3000/login1'
                         }
                     },
-                    userSearch
+                    email: userSearch[0].email,
+                    rol: userSearch[0].userType
                 })
             }
 
