@@ -1,29 +1,29 @@
 import { connectToDatabase } from '../lib/database'
 
 module.exports = async (req, res) => {
-    let userSearch
+    let loanSearch
 
 
     const db = await connectToDatabase();
-    const collection = await db.collection("users");
-    if (req.method === 'POST') {
+    const collection = await db.collection("Loans");
+    if (req.method === 'GET') {
         try {
 
-            userSearch = await collection.find({ email: req.body.email, passwd: req.body.passwd }).toArray();
+            loanSearch = await collection.find({}).toArray();
        
             let conf = true
             try {
-                userSearch[0].email
+                loanSearch[0].userName
 
             } catch (err) {
                 conf = false;
                 return res.json({
                     _links: {
                         self: {
-                            href: 'https://vercelworking-ej6t36ecv.vercel.app/api/login'
+                            href: 'https://vercelworking-ej6t36ecv.vercel.app/api/returnLoans'
                         }
                     },
-                    found: "false"
+                    message: "No loans found"
 
                 })
             }
@@ -31,11 +31,11 @@ module.exports = async (req, res) => {
                 return res.json({
                     _links: {
                         self: {
-                            href: 'https://vercelworking-ej6t36ecv.vercel.app/api/login'
+                            href: 'https://vercelworking-ej6t36ecv.vercel.app/api/returnLoans'
                         }
                     },
-                    email: userSearch[0].email,
-                    rol: userSearch[0].userType
+                    loans: loanSearch
+                   
                 })
             }
 
