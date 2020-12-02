@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     let userSearch
 
     const db = await connectToDatabase();
-    const collectionT = await db.collection("Loans");
+    const collectionT = await db.collection("loans");
     const collectionU = await db.collection("users");
     if (req.method === 'POST') {
         try {
