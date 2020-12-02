@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
                 userSearch[0].email
             } catch {
                 conf = false
-                console.log(userSearch[0].email)
+                console.log( req.body.email)
                 return res.json({
                     _links: {
                         self: {
