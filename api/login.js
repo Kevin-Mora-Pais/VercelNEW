@@ -1,13 +1,19 @@
 import { connectToDatabase } from '../lib/database'
+import micro from "micro-cors";
 const cors = require('cors')
 
 
-module.exports = async (req, res) => {
+async function login(req, res) {
     let userSearch
 
 
     const db = await connectToDatabase();
     const collection = await db.collection("users");
+
+    if (req.method === "OPTIONS") {
+        return res.status(200).end();
+    }
+
     if (req.method === 'POST') {
         try {
 
@@ -47,6 +53,8 @@ module.exports = async (req, res) => {
         }
     }
 
-    
-
 }
+
+const cors = micro();
+
+export default cors(login);
