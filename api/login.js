@@ -2,7 +2,7 @@ import { connectToDatabase } from '../lib/database'
 const cors = require('cors')
 
 
-async function login (req, res) {
+module.exports = async (req, res) => {
     let userSearch
 
 
@@ -50,4 +50,3 @@ async function login (req, res) {
     
 
 }
-module.exports = login(req, res)
