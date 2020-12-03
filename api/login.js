@@ -1,7 +1,6 @@
 import { connectToDatabase } from '../lib/database'
-import { allowCors } from './cors'
 const cors = require('cors')
-allowCors 
+
 
 module.exports = async (req, res) => {
     let userSearch
@@ -63,11 +62,7 @@ module.exports = async (req, res) => {
         return await fn(req, res)
     }
 
-    const handler = (req, res) => {
-        const d = new Date()
-        res.end(d.toString())
-    }
 
-    module.exports = allowCors(handler)
+    module.exports = allowCors
 
 }
