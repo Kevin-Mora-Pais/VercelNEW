@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     const db = await connectToDatabase();
     const collection = await db.collection("users");
     if (req.method === 'OPTIONS') {
-        return response.status(200).send('ok');
+        return res.status(200).send('ok');
     }
     if (req.method === 'POST') {
         try {
